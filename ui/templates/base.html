@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+    <!-- Bootstrap CSS -->
+    {{ bootstrap.load_css() }}
+    {% endblock %}
+
+    <title>Your page title</title>
+    {% endblock %}
+  </head>
+  <body>
+    {% from 'bootstrap/nav.html' import render_nav_item %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav mr-auto">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Detak News</a>
+            {{ render_nav_item('index', 'Random') }}
+            {{ render_nav_item('about', 'About') }}
+        </div>
+    </nav>
+    <!-- Your page content -->
+    {% block content %}{% endblock %}
+
+    {% block scripts %}
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }}
+    {% endblock %}
+  </body>
+</html>

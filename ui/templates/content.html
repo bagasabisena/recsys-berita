@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mt-1">{{ main.title }}</h1>
+    <div class="row mt-4">
+      <div class="col-md-8">
+        {% for par in main.body %}
+        <p>{{ par }}</p>
+        {% endfor %}
+      </div>
+      <div class="col-md-4">
+        {% for rel in related %}
+          <a href="{{ url_for('news', id=rel.id) }}"><h4>{{ rel.title }}</h4></a>
+          <p>{{ rel.body }}</p>
+        {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}
